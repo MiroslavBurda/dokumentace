@@ -197,3 +197,5 @@ https://www.pololu.com/product/2130 -driver DRV8833
 
 - V případě commitování do manuálu dejte do commit message na začátek text "RoboticsManual: VÁŠ POPIS COMMITU"
 - Pokud děláte reference v textu, nepoužívejte v nich nikdy diakritiku (viz tenhle případ) - rozbije to překlad do HTML. 
+
+u stop tlačítka se hodí indikace, že je stiknuté 
