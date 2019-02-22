@@ -2,6 +2,14 @@
 
 # PID regulátory
 
+postup: základ je vyladit regulátor P, až začne oscilovat. P samotné nepojede rovně, vždycky bude oscilovat. Potom P ubrat trochu a malou trochu přidávat regulátor I, tak že se bude přibližovat (pomalu) k ideální dráze. D zajistí rychlé přibližování k ideální dráze, ale je citlivé na šumy - bývají s tím problémy 
+závěr: pro první pokusy používat pouze PI 
+
+
+pro regulaci rychlosti je potřeba časová smyčka max. 10 ms, čím míň, tím líp 
+pokud chci regulovat polohu, toto omezení neplatí a můžu použít 
+jednoduchý enkodér optický - odraz na paprscích černá-bílá přilepeném na kolech
+
 https://www.pololu.com/docs/0J21/7.c - PID regulátory pro 3pi
 
 https://valter.byl.cz/plynula-regulace-pid
