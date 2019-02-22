@@ -1,0 +1,16 @@
+
+Připojení joysticku k EV3 pomocí bluetooth 
+
+1. Na EV3 musí být program, který přijme vše, co se z bluetooth vyšle, 
+pokud zůstanou vysílaná data "v luftě", tak program na kostce časem zhavaruje 
+
+2. PC se musí spárovat s kostkou (na obojím povolit BT a na PC vyhledat kostku, 
+toto se provede pouze jednou pro každé zařízení, podruhé už je zařízení v seznamu 
+vyhledaných, dokonce i když je vyplé nebo mimo dosah a znova se proto nenajde)
+potom se přes Lorris na kostku připojit (připojením přes BT se  vytvoří další COM port, 
+ten se potom vybere v Lorris (vlastně se vytvoří 2 com porty, musíte vybrat/tipnout ten správný) 
+nastavovat přenos se v lorris nemusí 
+V analyzéru vytvořte nový skript, klik na žárovičku (vzorové příklady), otevře se okno, 
+přepnout nahoře na programování v Pythonu, vybrat příklad pro joystick, 
+z Tasemnice stáhnout kód pro EV3 protokol, 
+vše složit dohromady a spustit 

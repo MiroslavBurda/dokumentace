@@ -1,0 +1,127 @@
+https://github.com/RoboticsBrno/RB3201-RBControl-library
+
+Seminář Kuba Streit 
+
+drivery pro motory se dají paralelizovat (pouze na stejné desce)
+
+vpravo nahoře 
+IO35 (a podobné) - piny z ESP32 a současně je na stejný pin přivedeno ENC8B - enkodér pro 8. motor (každý enkodér má dva dráty, A a B)
+
+expandéry jsou pomalé, proto jsou vhodné např. pro řízení motorů a pod. , ale ne pro např. modelářské servo 
+
+stabiliyátor dodává 1A, proudová rezerva je asi 0.5A, když zkusím tahat víc, tak se stabilizátor vypne, neb má v sobě pojistku  
+proudová rezerva 
+
+pod ESP je jumper, pokud není zkratovaný, tak piezzo nepípá 
+expandér pinů na 3bitovou adresu, takže jich může být 8 tohoto typu (expandéry jsou různých typů, včetně "rychlých" expandérů, které zvládnou i ovládání modelářských serv) 
+
+na velkém poli pinů vpravo 5V neznamená 5V, ale je to tolik voltů, jaký stabilizátor je zrovna připojený k daným pinům (připájený + připojený pomocí jumperu) -> toto se musí ohlídat speciálně při připojování serv 
+
+---------------
+programování - viz míčkoflus.cz
+- stáhnout, otevřít a zbuildovat demo projekt z míčkoflusu, ten si natahá z GitHubu všechny potřebné knihovny a bude připraven k Buildu 
+
+
+
+
+https://www.mickoflus.cz/guide.html -> odtud odkaz dole Dokumentace RBControl knihovny:
+http://technika.tasemnice.eu/docs/rbcontrol/annotated.html odtud dále: 
+
+http://technika.tasemnice.eu/docs/rbcontrol/namespacerb.html - popis namespace rb
+
+
+-----------------
+# blikání led: 
+
+#include "RBControl_manager.hpp"
+
+extern "C" void app_main() {
+    // Initialize the robot manager
+    rb::Manager man;
+	while true {
+		man.leds().green(true);
+		delay(1000);
+		man.leds().green(false);
+		delay(1000); 
+	}
+}
+
+https://rbcontrol.robotikabrno.cz - wall s p59klady 
+
+u serva je nějaká chyba, která způsobuje, že nestačí zapnout attach, ale je potřeba poslat do serva první pokyn, aby začal attach posílat do serva signál 
+
+místo 
+lib_deps =
+    https://github.com/RoboticsBrno/RB3201-RBControl-library.git
+    https://github.com/RoboticsBrno/ESP32-Arduino-Servo-Library.git
+
+se u serva použije: 
+
+lib_deps =
+    RB3201-RBProtocol@3.0.1
+    RB3201-RBControl@1.6.1
+    ServoESP32
+------------------------------------------
+
+#include <Arduino.h>
+#include "RBControl_manager.hpp"
+#include <Servo.h>
+
+rb::Manager* man = nullptr;
+
+Servo servo3;
+
+extern "C" void app_main()
+{
+    rb::Manager m;
+    
+    auto& batt = m.battery();
+    batt.setCoef(9.0);
+
+
+    man = &m;
+    setup();
+    for(;;) {
+        micros();
+        loop();
+        vTaskDelay(1/portTICK_PERIOD_MS);
+    }
+}
+
+void setup() {
+    Serial.begin(115200);
+    servo3.attach(32);
+    servo3.write(90);
+}
+
+
+void loop() {
+    if(Serial.available()) {
+        char c = Serial.read();
+        switch(c) {
+            case 'q':
+                servo3.write(60);
+                break;
+            case 'e':
+                servo3.write(120);
+                break;
+            default:
+                Serial.write(c);
+                break;
+        }
+    }
+}
+
+--*******
+
+# Nastav mne!
+upload_port = /dev/ttyUSB0
+
+lib_deps =
+    RB3201-RBProtocol@4.0.0
+    RB3201-RBControl@2.0.0
+    https://github.com/RoboticsBrno/ESP32-Arduino-Servo-Library.git
+
+
+
+
