@@ -199,3 +199,14 @@ https://www.pololu.com/product/2130 -driver DRV8833
 - Pokud děláte reference v textu, nepoužívejte v nich nikdy diakritiku (viz tenhle případ) - rozbije to překlad do HTML. 
 
 u stop tlačítka se hodí indikace, že je stiknuté 
+
+----------------------------------------------------------
+workspace - rozložení pracovní plochy
+
+wifi: esp připojuje k počítači  
+potřebuješ, aby wifi vytvářel počítač a esp se připojovalo, lze to i naopak, ale to by 
+připojování trvalo hrozně dlouho 
+
+bluetooth : počítač se připojuje k esp -> když se do esp nahraje nový program, 
+tak se esp restartuje -> musíš se připojit znovu , řešení: program napsat univerzálnější 
+a pak ladit konstanty po sériové lince přes bluetooth 
