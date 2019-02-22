@@ -1,4 +1,4 @@
-U stop tlačítka se hodí indikace, že je stisknuté ... :-))
+
 
 # PID regulátory
 
