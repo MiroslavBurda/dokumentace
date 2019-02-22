@@ -28,6 +28,10 @@ https://www.mickoflus.cz/guide.html -> odtud odkaz dole Dokumentace RBControl kn
 http://technika.tasemnice.eu/docs/rbcontrol/annotated.html odtud dále: 
 
 http://technika.tasemnice.eu/docs/rbcontrol/namespacerb.html - popis namespace rb
+----------------------------
+kabely od hallových sond pasují přesně do pinhedů u motorů 
+motory jsou v SW jsou definované 0-7, i když jsou číslované 1-8 
+na chladiči stabilizátoru uprostřed desky je zem, na chladičích vstupních tranzistorů je napájecí napětí 
 
 
 -----------------
