@@ -166,6 +166,7 @@ normální serva znají svoji polohu ale já ji neumím z nich při připojení 
 vstupní polohy, jinak s sebou "švihnou" 
 
 --------------------------------------------------
+
 vize: použít pult pro inspiraci, pult i moduly z překližky vyřezané na laseru, pěnu podle situace (možná taky na laseru), nebo použít na zakrytování také překližku z laseru  
 do pultu dát ALKS a k ní připojit potřebné periferie - komunikovat s robotem budou přes bluetooth v ESP32 na obou stranách
 napájení Powerbankou přes USB 
@@ -173,6 +174,7 @@ přidat Displej? ovládání displeje přes ALKS?
 nebo vzít playstation ovladač + Lorris na NTB a potřebná nastavení mít na NTB 
 Dodržovat pravidla o složených závorkách? 
 http://technika.junior.cz/trac/wiki/eurobot/reference/Formátování_zdrojových_textů
+
 --------------------------------------------------------------
 https://robotikabrno.cz/sokolska/projekty - OVládací pult, Lorris, 
 https://www.youtube.com/channel/UCxLGjiNwJ9u7Wdb1kahaHgg - kanál Robotika Brno na Youtube
