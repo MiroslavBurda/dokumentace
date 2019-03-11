@@ -212,3 +212,10 @@ připojování trvalo hrozně dlouho
 bluetooth : počítač se připojuje k esp -> když se do esp nahraje nový program, 
 tak se esp restartuje -> musíš se připojit znovu , řešení: program napsat univerzálnější 
 a pak ladit konstanty po sériové lince přes bluetooth 
+
+----------------------
+
+napájení ze zdroje pro mobil 
+545043 YwRobot 
+https://www.petervis.com/Raspberry_PI/Breadboard_Power_Supply/YwRobot_Breadboard_Power_Supply.html
+
