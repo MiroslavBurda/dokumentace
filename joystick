@@ -26,3 +26,9 @@ V analyzéru vytvořte nový skript, klik na žárovičku (vzorové příklady),
 přepnout nahoře na programování v Pythonu, vybrat příklad pro joystick, 
 z Tasemnice stáhnout kód pro EV3 protokol, 
 vše složit dohromady a spustit 
+
+
+### Kalibrace joysticku
+Start > Ovládací panely > Zařízení a tiskárny, 
+poté pravý klik na joystick a vybrat nastavení herního zařízení, 
+poté klik na tlačítko vlastnosti, následně vybrat záložku Nastavení a klik na kalibrovat.
