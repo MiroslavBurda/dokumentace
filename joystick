@@ -43,3 +43,13 @@ nový terminál otevřu klepnutím na modré plus vedle záložek
 když chci rozdělit okno, chytím záložku a táhnu např. doleva, musím se ukazatelemm myši dostat přesně 
 na červené "rozdělit", které se úplně vlevo objeví , až se zežlutí, tak pustím 
 
+def axesChanged(axes):
+    terminal.appendText("Axes changed: " + str(axes) + "\n");
+    res = "";
+    for i in range(0, joystick.getNumAxes()):
+        res += str(i) + ": " + str(joystick.getAxisVal(i)) + ", "; # SEE THIS: Get actual axis value. From -32768 to 32767
+    terminal.appendText(res + "\n\n");
+    
+    val = joystick.getAxisVal(0)
+    lorris.sendData([0x80, val >> 8, val & 0xFF ]) 
+    
