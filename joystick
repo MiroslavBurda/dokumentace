@@ -32,3 +32,14 @@ vše složit dohromady a spustit
 Start > Ovládací panely > Zařízení a tiskárny, 
 poté pravý klik na joystick a vybrat nastavení herního zařízení, 
 poté klik na tlačítko vlastnosti, následně vybrat záložku Nastavení a klik na kalibrovat.
+
+
+Lorris 
+aby fungoval skript, musím ho použít -> zelená šipka v menu nahoře nebo F5, totéž pro každou změnu skriptu 
+terminál si otevřu na připojení, které vidím při programování ALKS 
+terminál i analyzér používají stejné připojení, pouze v různých záložkách, takže se připojují i odpojují současně 
+pro programování (z VSCode) musím terminál (z Lorris) odpojit a po naprogramování opět připojit 
+nový terminál otevřu klepnutím na modré plus vedle záložek 
+když chci rozdělit okno, chytím záložku a táhnu např. doleva, musím se ukazatelemm myši dostat přesně 
+na červené "rozdělit", které se úplně vlevo objeví , až se zežlutí, tak pustím 
+
