@@ -42,6 +42,9 @@ File > Configure > Pixy parametrs > signature labels
 
 ## Příklad zdrojového kódu 
 
+tento program je také na 
+https://rbcontrol.robotikabrno.cz/index.php
+
 #include <Arduino.h>
 #include <Wire.h>
 #include "Pixy2I2C.h"
