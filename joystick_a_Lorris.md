@@ -1,3 +1,5 @@
+### Antiviry shazují Lorris 
+musí se vypnout alespoň ochrana v reálném čase -> AVG, Avast ... 
 
 ## joystick připojit přes lorris 
 
