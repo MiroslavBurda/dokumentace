@@ -10,6 +10,7 @@ po vybrání by se mělo objevit menu, ze kterého vyberu připojený joystick
 důležitá je metoda  axesChanged(axes) a buttonChanged(id, state):
 pro posílání dat  do čipu je v příkladu Controls metoda lorris.sendData
 
+(- do textu o Lorris doplnit odkaz http://tasssadar.github.io/Lorris/cz/index.html ) 
 
 ## Připojení joysticku k EV3 pomocí bluetooth 
 
@@ -125,3 +126,25 @@ void loop() // this part works in cycle
     }  
 }
 
+-------------------------------------------------------------------
+## Když nejede poprvé upload do ESP32
+
+Pokud je build programu v pořádku a při prvním pokusu o nahrání programu do čipu na windows se objeví hláška: 
+
+Looking for upload port…
+
+Error: Please specify upload_port for environment or use global --upload-port option
+
+může pomoct instalace virtuálního com portu pomocí driveru:  
+
+CP2102 USB to UART Bridge Controller
+
+https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers 
+
+dále: 
+
+To find the USB port: Hit WindowsKey-X, select Device Manager, plug in the device and observe what's listed under Ports (COM & LPT) - the one that just appeared has the port in brackets (COMn).
+
+Then in platformio.ini in your PlatformIo initialised project folder, you specify the port as a line under the platform section (env: square brackets line): upload_port = com9 or whatever you got from Device Manager.
+
+I hope this helps.
