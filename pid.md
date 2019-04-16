@@ -112,7 +112,23 @@ https://robotika.cz/guide/localization/cs
 
 https://www.vutbr.cz/www_base/zav_prace_soubor_verejne.php?file_id=147998 - možná má smysl to pročíst 
 
+### PID regulátor 
 
+w - to co požaduje program 
+y - to, co leze z enkodéru 
+x - výkon, který jde do motoru 
+e - odchylka w a y 
+
+sum - celková intergrální suma 
+dif - celková derivační  suma 
+
+ramp - náběh výkonu je postupný 
+step - maximální změna výkonu motoru 
+max - maximální hodnota motoru 
+
+P - násobící konstanta pro lineární člen 
+S - násobící konstanta pro integrální člen
+D - násobící konstanta pro derivační člen
 
 
 
