@@ -1,4 +1,4 @@
-```
+```c
 
 #include <Arduino.h>
 #include <format.h>
