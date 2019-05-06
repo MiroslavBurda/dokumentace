@@ -40,3 +40,11 @@ při každém zapnutí se musí zkalibrovat motor (potřebuje si dát motor do k
 Přitom by motor neměl být na pružinové zátěži (rostoucí zátěž s rostoucí vzdáleností)
 
 https://github.com/madcowswe/ODriveHardware/blob/master/v3/v3.3docs/mech_dimensions.PNG - rozměry, na výšku cca 4 cm
+
+Zprovoznění 
+--------------
+https://docs.odriverobotics.com - nainstalovat python 3 a  odrivetool - funguje z příkazové řádky, ukončuje se Ctrl+D, aby se dal rozjet, musí být Odrive připojený k PC a zapnutý 
+
+
+https://gitlab.com/p87942130/ui_odrivetool - grafická nástavba pro odrivetool - stáhnout jako zip, rozbalit, a podle pokynu v readme.md doinstalovat ovladače pro grafy a grafické rozhraní (tlačítka) a spustit z příkazové řádky 
+
