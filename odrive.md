@@ -47,4 +47,4 @@ https://docs.odriverobotics.com - nainstalovat python 3 a  odrivetool - funguje 
 
 
 https://gitlab.com/p87942130/ui_odrivetool - grafická nástavba pro odrivetool - stáhnout jako zip, rozbalit, a podle pokynu v readme.md doinstalovat ovladače pro grafy a grafické rozhraní (tlačítka) a spustit z příkazové řádky 
-přitom do příkazové řádky patří: python3 odrivetool_UI.py
+přitom do příkazové řádky patří: python odrivetool_UI.py
