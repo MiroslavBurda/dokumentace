@@ -74,4 +74,10 @@ if je chyba, tak reboot restartuje celý odrive, potom je potřeba ho znovu při
 
 taky je možné Odrive resetovat -> chybový stav se vymaže 
 
+Pro držení odrive v resetu je potřeba přes rezistor cca 3-10k připojit pin NRST k zemi, současně připojit na vybraný pin ESP. 
+Když se na pin ESP přivede log1, tak se Odrive zapne. Pokud bude resetované nebo vypnuté ESP, bude resetovaný i Odrive. 
+
+
+
+
 Odrive má 4 logické vrstvy:
