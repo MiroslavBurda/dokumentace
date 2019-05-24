@@ -5,9 +5,7 @@ https://rbcontrol.robotikabrno.cz - web s příklady kódu pro RBC, u nejspodně
 https://github.com/RoboticsBrno/RB3201-RBControl-library
 
 Dokumentace RBControl knihovny:  
-http://technika.tasemnice.eu/docs/rbcontrol/annotated.html odtud dále: 
-
-http://technika.tasemnice.eu/docs/rbcontrol/namespacerb.html - popis namespace rb
+https://roboticsbrno.github.io/RB3201-RBControl-library/index.html - popis namespace rb
 
 
 ### Deska
