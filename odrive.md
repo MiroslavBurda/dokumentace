@@ -78,6 +78,8 @@ Pro držení odrive v resetu je potřeba přes rezistor cca 3-10k připojit pin 
 Když se na pin ESP přivede log1, tak se Odrive zapne. Pokud bude resetované nebo vypnuté ESP, bude resetovaný i Odrive. 
 
 
-
+spuštění odrive tool: 
+připojit se do spráovného adresáře a napsat:
+python odrivetool_UI.py
 
 Odrive má 4 logické vrstvy:
