@@ -84,8 +84,9 @@ python odrivetool_UI.py
 
 tři způsoby řízení:
 1) momentové - motor působí konstatní silou - nic to neříká o rychlosti ani o poloze (terminologie Odrivu: řízení proudu) 
-2) rychlostní řízení - nic to neříká o poloze  
-3) polohové řízení - snaží se udržet polohu a vrací se na tu polohu 
+2) rychlostní řízení - nic to neříká o poloze, když nejde do motoru signál o nenulové rychlosti, motor se brání otáčení, ale zůstane v nové poloze 
+3) polohové řízení - snaží se udržet polohu a když nejde do motoru signál o změně, tak se vrací se na tu polohu, která byla naposledy zadaná 
+
 
 
 
