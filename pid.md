@@ -1,5 +1,4 @@
 
-
 # PID regulátory
 
 postup: základ je vyladit regulátor P, až začne oscilovat. P samotné nepojede rovně, vždycky bude oscilovat. Potom P ubrat trochu a malou trochu přidávat regulátor I, tak že se bude přibližovat (pomalu) k ideální dráze. D zajistí rychlé přibližování k ideální dráze, ale je citlivé na šumy - bývají s tím problémy 
@@ -21,7 +20,7 @@ http://www.embedded.com/design/prototyping-and-development/4211211/PID-without-a
 
 https://www.root.cz/clanky/stavime-kvadrokopteru-bezpecnost-pid-regulator/
  
-
+```C
 class PID {
   float suma_err = 0;
   float predchozi_err = 0;
@@ -41,8 +40,9 @@ public float get_PID(float zadany_naklon, float aktualni_naklon, float diff_t) {
   return ret;
   }
 }
+```
 
----------------------------------------------------------------------------------
+----------------------
 
 Moje vysvetleni: PID regulator funguje tak. Mame nejaky chybovy signal napr. odchylku aktualni rychlosti otaceni od pozadnovane rychlosti otaceni. Pak mame nejaky signal co ridime napr. napeti na motoru.
 
@@ -63,7 +63,7 @@ Pokud se týká vašeho kódu, já bych osobně rozhodně ošetřil omezení roz
 
 Doplním, pokud by to někdo hledal, že se jedná o anti-windup techniku.
 
---------------
+```C
 float supp = 0;
 supp =                    get_pid( // Funkce PID regulátoru.
                           &pid_ns, // Reference na strukturu s daty PID regulátoru pro North-South osu.
@@ -83,7 +83,9 @@ supp = get_pid(&pid_z, command.z, gyroZ, 1/LOOP_HZ); // PID pro korekci rotace. 
     power_s += supp; // motorech. Cílem je dosáhnout rozdílu
     power_e -= supp; // výkonu na obou osách, čímž je vyvíjena
     power_w -= supp; // rotace. 
-----------------------
+```
+
+
 https://forum.root.cz/index.php?topic=15603.0
 
 anti-windup:

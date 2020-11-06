@@ -45,6 +45,7 @@ File > Configure > Pixy parametrs > signature labels
 tento program je také na 
 https://rbcontrol.robotikabrno.cz/index.php
 
+```C
 #include <Arduino.h>
 #include <Wire.h>
 #include "Pixy2I2C.h"
@@ -84,8 +85,6 @@ void loop() // this part works in cycle
         if (pixy.line.numIntersections) pixy.line.intersections->print();
     }
 }
-
-----------------------------------------------------------------
 
 
 

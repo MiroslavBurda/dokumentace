@@ -94,14 +94,11 @@ a 3pi se rozjede plnou rychlostí vpřed - v takovém případě použij restart
 
 Mail + screenshot je ze 7.11. na gmail.com
 
--------------
-P.S. Vojta má půjčené 3pi č. 2
-
 
 
 ### Testovací program pro 3pi
 
-```
+```C
 /*
  * _3pi_BatteryControl.cpp
  *
@@ -132,3 +129,4 @@ void run()
 }
 ```
 
+https://www.pololu.com/docs/0J21/7.c - PID regulátory pro 3pi

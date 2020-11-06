@@ -1,53 +1,45 @@
 ### Antiviry shazují Lorris 
 musí se vypnout alespoň ochrana v reálném čase -> AVG, Avast ... 
 
-## joystick připojit přes lorris 
+## Joystick připojit přes lorris 
 
 otevři lorris
+
 připoj se k zařízení (nebo ne) 
+
 vyber analyzér > script 
+
 pravým na horní lištu > zobrazit zdrojový kód scriptu 
+
 z ikonek vyberu žárovičku (příklady) > vyberu joystick 
+
 po vybrání by se mělo objevit menu, ze kterého vyberu připojený joystick 
+
 důležitá je metoda  axesChanged(axes) a buttonChanged(id, state):
 pro posílání dat  do čipu je v příkladu Controls metoda lorris.sendData
 
-(- do textu o Lorris doplnit odkaz http://tasssadar.github.io/Lorris/cz/index.html ) 
-
-## Připojení joysticku k EV3 pomocí bluetooth 
-
-1. Na EV3 musí být program, který přijme vše, co se z bluetooth vyšle, 
-pokud zůstanou vysílaná data "v luftě", tak program na kostce časem zhavaruje 
-
-2. PC se musí spárovat s kostkou (na obojím povolit BT a na PC vyhledat kostku, 
-toto se provede pouze jednou pro každé zařízení, podruhé už je zařízení v seznamu 
-vyhledaných, dokonce i když je vyplé nebo mimo dosah a znova se proto nenajde)
-potom se přes Lorris na kostku připojit (připojením přes BT se  vytvoří další COM port, 
-ten se potom vybere v Lorris (vlastně se vytvoří 2 com porty, musíte vybrat/tipnout ten správný) 
-nastavovat přenos se v lorris nemusí 
-V analyzéru vytvořte nový skript, klik na žárovičku (vzorové příklady), otevře se okno, 
-přepnout nahoře na programování v Pythonu, vybrat příklad pro joystick, 
-z Tasemnice stáhnout kód pro EV3 protokol, 
-vše složit dohromady a spustit 
-
-
-### Kalibrace joysticku
+## Kalibrace joysticku
 Start > Ovládací panely > Zařízení a tiskárny, 
 poté pravý klik na joystick a vybrat nastavení herního zařízení, 
 poté klik na tlačítko vlastnosti, následně vybrat záložku Nastavení a klik na kalibrovat.
 
 
-### Lorris 
+## Lorris 
 aby fungoval skript, musím ho použít -> zelená šipka v menu nahoře nebo F5, totéž pro každou změnu skriptu 
+
 terminál si otevřu na připojení, které vidím při programování ALKS 
 terminál i analyzér používají stejné připojení, pouze v různých záložkách, takže se připojují i odpojují současně 
+
 pro programování (z VSCode) musím terminál (z Lorris) odpojit a po naprogramování opět připojit 
+
 nový terminál otevřu klepnutím na modré plus vedle záložek 
+
 když chci rozdělit okno, chytím záložku a táhnu např. doleva, musím se ukazatelemm myši dostat přesně 
 na červené "rozdělit", které se úplně vlevo objeví , až se zežlutí, tak pustím 
 
 část skriptu v příkladu pro Lorris 1. varianta
 
+```python
 def axesChanged(axes):
     terminal.appendText("Axes changed: " + str(axes) + "\n");
     res = "";
@@ -57,9 +49,11 @@ def axesChanged(axes):
     
     val = joystick.getAxisVal(0)
     lorris.sendData([0x80, val >> 8, val & 0xFF ]) 
-    
+```    
+
 část skriptu v příkladu pro Lorris 2. varianta
 
+```python
 # Called on axes change. "axes" is Array of ints with ids of axes which were changed
 def axesChanged(axes):
     terminal.appendText("Axes changed: " + str(axes) + "\n");
@@ -77,9 +71,11 @@ def axesChanged(axes):
 def buttonChanged(id, state):
     terminal.appendText("Button " + str(id) + ", state " + str(state) + "\n");
     lorris.sendData([0x81, id, state]) 
-    
+```
+
 Odpovídající program v C pro ALKS pro 2. variantu 
 
+```C
 #include <Arduino.h>
 #include <Wire.h>
 #include "Pixy2I2C.h"
@@ -127,26 +123,36 @@ void loop() // this part works in cycle
     Serial.println(" ");
     }  
 }
+```
 
--------------------------------------------------------------------
-## Když nejede poprvé upload do ESP32
+## Připojení joysticku k EV3 pomocí bluetooth 
 
-Pokud je build programu v pořádku a při prvním pokusu o nahrání programu do čipu na windows se objeví hláška: 
+1. Na EV3 musí být program, který přijme vše, co se z bluetooth vyšle, 
+pokud zůstanou vysílaná data "v luftě", tak program na kostce časem zhavaruje 
 
-Looking for upload port…
+2. PC se musí spárovat s kostkou (na obojím povolit BT a na PC vyhledat kostku, 
+toto se provede pouze jednou pro každé zařízení, podruhé už je zařízení v seznamu 
+vyhledaných, dokonce i když je vyplé nebo mimo dosah a znova se proto nenajde)
 
-Error: Please specify upload_port for environment or use global --upload-port option
+3. potom se přes Lorris na kostku připojit (připojením přes BT se  vytvoří další COM port, 
+ten se potom vybere v Lorris (vlastně se vytvoří 2 com porty, musíte vybrat/tipnout ten správný) 
+nastavovat přenos se v lorris nemusí 
+V analyzéru vytvořte nový skript, klik na žárovičku (vzorové příklady), otevře se okno, 
+přepnout nahoře na programování v Pythonu, vybrat příklad pro joystick, 
+z Tasemnice stáhnout kód pro EV3 protokol, 
+- technika.tasemnice.eu.trac   - komunikace joystick - PC - lego 
+yunibear - transmitter - v C napsaná vysílací strana pro Lego 
 
-může pomoct instalace virtuálního com portu pomocí driveru:  
+vše složit dohromady a spustit 
 
-CP2102 USB to UART Bridge Controller
+-----------
+musí se napřed 1) najít 2) spárovat 3) připojit v Lorris na vhodný COM 
+defalutní pin 1234 - v PC se snažím připojit, na kostce to potvrdím, na PC to pak vytvoří COM port, ten najdu v Lorris 
+(vytvoří dva COM porty, jeden pro směr do kostky, druhý pro směr do PC, přitom oba komunikují oběma směry, 
+ten, co se připojuje déle, je ten správný pro připojení Lorris )
+na PC se připojuje Bluetooth 
+až se změní ikonka vlevo nahoře, tak je vše připojeno 
 
-https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers 
+při vysílání se musí dodržet legový protokol, jinak to ta kostka nepobere a nic neudělá 
 
-dále: 
 
-To find the USB port: Hit WindowsKey-X, select Device Manager, plug in the device and observe what's listed under Ports (COM & LPT) - the one that just appeared has the port in brackets (COMn).
-
-Then in platformio.ini in your PlatformIo initialised project folder, you specify the port as a line under the platform section (env: square brackets line): upload_port = com9 or whatever you got from Device Manager.
-
-I hope this helps.

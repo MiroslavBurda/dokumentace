@@ -53,8 +53,7 @@ přitom do příkazové řádky patří: python odrivetool_UI.py
 idle - vypnutý výkonový stupeň (řízení motoru )
 startovní sekvence - lze použít i později 
 
-1) motor calibration - zjištění odporu a indukčnosti vinutí - pouští do něj různé frekvence (píská) a měří fázový posuv
- - dá se uložit do Odrivu (musí se zvlášť dát Save)
+1) motor calibration - zjištění odporu a indukčnosti vinutí - pouští do něj různé frekvence (píská) a měří fázový posuv - dá se uložit do Odrivu (musí se zvlášť dát Save)
 2) encoder offset - zjištění natočení motoru (vzájemná poloha rotoru a statoru - pomalé točení tam a zpet
 tyto dva údaje 1) a 2) odrive potřebuje, aby mohl přesně řídit motor -> zjištění pomocí enkodérů , proto točí kolem 
 encoder index - pokud má vyvedený indexový drát (Z) - je to jedna konkrétní poloha v otáčce, je možné ho použít místo encoder offset, je to rychlejší,  může takto zjišťovat polohu
@@ -86,9 +85,5 @@ tři způsoby řízení:
 1) momentové - motor působí konstatní silou - nic to neříká o rychlosti ani o poloze (terminologie Odrivu: řízení proudu) 
 2) rychlostní řízení - nic to neříká o poloze, když nejde do motoru signál o nenulové rychlosti, motor se brání otáčení, ale zůstane v nové poloze 
 3) polohové řízení - snaží se udržet polohu a když nejde do motoru signál o změně, tak se vrací se na tu polohu, která byla naposledy zadaná 
-
-
-
-
 
 Odrive má 4 logické vrstvy:

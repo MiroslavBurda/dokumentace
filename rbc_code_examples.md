@@ -1,3 +1,21 @@
+
+```c++
+# blikání led: 
+
+#include "RBControl_manager.hpp"
+
+extern "C" void app_main() {
+    // Initialize the robot manager
+    rb::Manager man;
+	while true {
+		man.leds().green(true);
+		delay(1000);
+		man.leds().green(false);
+		delay(1000); 
+	}
+}
+```
+
 ```c++
 
 #include <Arduino.h>

@@ -5,7 +5,7 @@
 
 - řízení přes joystick, notebook a bluetooth do kostky 
 - konstrukce podobná Medvědici 
-- velká kola -> onshape -> laser 4mm překližka + guma na kola 
+- velká kola -> fusion/onshape -> laser 4mm překližka + guma na kola 
 - dobrý řidič 
 
 
