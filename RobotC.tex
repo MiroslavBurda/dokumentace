@@ -1,0 +1,111 @@
+
+\documentclass[12pt]{article}
+\usepackage[czech]{babel} % nastavuje české popisky např. u obsahu, referencí, tabulek, obázků 
+\usepackage[utf8]{inputenc} % použito UTF8 kvůli češtině (zvládá prakticky všechny jazyky na světě)
+
+
+%\usepackage{indentfirst} % odsazuje první odstavec v kapitole
+
+\usepackage{color} % balíček pro obarvování textů
+% \color{blue}
+\usepackage{xcolor}  % zapne možnost používání barev, mj. pro \definecolor
+\definecolor{mygreen}{RGB}{0,150,0} % nastavení barev odkazů 
+\definecolor{myblue}{RGB}{0,0,200} 
+\definecolor{commentgreen}{RGB}{0,100,0} % nastavení barev pro příklady z C++
+\definecolor{deepblue}{rgb}{0,0,0.7}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{hyperref} % balíček pro hypertextové odkazy
+% \url{www.odkaz.cz}
+% \href{http://www.odkaz.cz}{Text který bude jako odkaz}
+%\hyperlink{label}{proklikávací_text} - odkaz na text 
+% \hypertarget{label}{cíl_odkazu} - cíl odkazu  
+
+
+\hypersetup{colorlinks=true, linkcolor=myblue, urlcolor=mygreen, citecolor=blue, anchorcolor = magenta,
+	linktocpage = true, frenchlinks } % nastavení barvy odkazů 
+% bookmarksopen=true, bookmarksnumbered=true, bookmarksopenlevel=1 - nastavuje rozbalování levého menu       
+
+\usepackage{graphicx} % pro vkládání obrázků a příkaz "\includegraphics"
+%% samotné vložení obrázku
+%\begin{figure}
+%	\includegraphics[width=\textwidth]{../img/when_use_latex.png}
+%	\caption{Kdy se vyplatí použít \LaTeX} % popis, který se zobrazí pod obrázkem
+%	\label{moje_navesti} %identifikuje objekt, který lze pak referencovat
+%\end{figure}
+%% ---------------------------
+
+% Délky a mezery pro celý dokument
+\setlength{\parskip}{0.5ex plus 0.5ex minus 0.2ex} %Nastavuje velikost vertikální mezery mezi odstavci:
+% první číslo je mezera mezi odstavci, druhé nevím a třetí je mezera před začátkem nové kapitoly a podkapitoly
+\parindent=0pt % odstavce nebudou odsazeny zarážkou (velikost odsazení prvního řádku odstavce)
+\usepackage{enumitem} % pro příkaz \setlist
+\setlist{itemsep = -1pt, topsep=3pt} % nastavuje mezery mezi a před výčtovým prosředím (enumerate, itemize ...)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+	\begin{center}
+		\Huge \textbf{RobotC} 
+	\end{center}
+
+\section{RobotC}
+
+\subsection{Začátek}
+\begin{enumerate}
+	\item \textbf{stáhnout a nainstalovat program} ze stránek \href{http://www.robotc.net/download/lego/}{robotc.net}
+	\item \textbf{vybrat platformu EV3:} \\
+	 \textless Robot\textgreater \textless Platform type\textgreater \textless Lego Mindstorms\textgreater \textless Lego Mindstorms EV3\textgreater 
+	\item \textbf{nahrát do kostky Kernel}: \textless Robot\textgreater \textless Download linux Kernel\textgreater  \\
+	(musí být přes kabel připojená a zapnutá kostka!)
+	\item  \textbf{nahrát do kostky firmware} ve verzi dodané staženým ROBOTC: \\
+	\textless Robot\textgreater \textless Download Firmware .... \textgreater 
+	
+	\item \textbf{nastavit motory a senzory} tak, jak jsou připojené ke kostce:\\
+	\textless Robot\textgreater \textless Motors and sensors setup\textgreater  \\ a na záložkách \textit{Motors} a \textit{Sensors} nastavit potřebné hodnoty
+	
+\end{enumerate}
+  
+\subsection{Programování}
+  
+\begin{itemize}
+	\item programovat se může textově nebo graficky, pro úplné začátečníky je jednodušší graficky (samostatná ikona)
+	\item pro nahrávání programu musí být kostka zapnutá
+	\item začněte s volbou \texttt{New file}
+	\item vlevo v menu je dostupná většina možných příkazů
+	\item nastavení tabulátoru na 4: 
+	\texttt{View > Preferences > Detailed preferences > Editor > Text > Tab size}
+	\item \texttt{Natural language} znamená už předchystané funkce -- dají se rozklíčovat, když se na ně klikne pravým tlačítkem a vybere se \texttt{Go to definition /declaration} (pro ostatní funkce funguje taky) 
+	\item \texttt{<F5>} mě nefunguje, každý nový program/úprava programu se musí napřed zkompilovat (\texttt{Compile program} nahoře na liště), potom nahrát do robota (\texttt{Download to robot} hned vedle) a nakonec spustit (buď tlačítko \texttt{Start} v okně \textit{Debugger} (okno \texttt{Debugger} se otevře samo po nahrání programu do robota)  nebo na kostce v adresáři \texttt{rc})
+	\item velmi praktické volby \texttt{Robot > Debugger Windows} se zpřístupní až po nahrání programu do robota
+	
+	\item umí vícevlákonové programování, vlákna nazývá tasks (max. 20 vláken), vlákno se musí spustit (\texttt{startTask}) a na konci programu zastavit (\texttt{stopTask}), více v helpu \texttt{F1}, sekce \texttt{ROBOTC > Task Control}, dále v 
+	\href{http://georgegillard.com/documents/1-the-beginners-guide-to-robotc}{The Beginners Guide to ROBOTC}, díl 2 kapitola 4 (jednoduché) a 
+	\href{https://www.vexforum.com/t/discussion-on-using-tasks-in-robotc/33025}{jpearman} (pokročilé a podrobné)
+	
+	
+\end{itemize}
+  
+  
+\subsection{Ostatní}
+
+
+\begin{itemize}
+	\item \href{http://help.robotc.net/WebHelpMindstorms/index.htm}{List of Commands for EV3}
+	\item VADÍ diakritika v názvech souborů (a asi i v názvech proměnných) $\rightarrow$ program nejde nahrát do kostky
+	\item  napětí na baterii lze zjistit z menu \texttt{Robot > Debugger Windows > System Parameters} (objeví se v dolním okně)
+	\item RobotC lze s EV3 kostkou propojit přes bluetooth, postup: 
+	\begin{enumerate}
+		\item zapnout kostku a povolit v ní Bluetooth Nastavení (ikona vpravo nahoře) v ní Bluetooth, položky \texttt{Bluetooth} i \texttt{Visibility} musí být zaškrtnuté 
+		\item připojit kostku k PC a spárovat 
+		\item  v programu RobotC: \texttt{Robot > Lego Brick > Communication Link Setup} po této volbě se program pokusí kostku najít a když se mu to povede (kostka se objeví v okně \texttt{Select Brick to Use ...}),
+		 tak je komunikace zprovozněná a chová se úplně stejně jako přes kabel (jen to déle trvá -- sekundy)   
+	\end{enumerate}
+	
+\end{itemize}
+
+
+ 
+ \end{document}

@@ -1,0 +1,514 @@
+\documentclass[12pt]{article}
+\usepackage[czech]{babel} % nastavuje české popisky např. u obsahu, referencí, tabulek, obázků 
+\usepackage[utf8]{inputenc} % použito UTF8 kvůli češtině (zvládá prakticky všechny jazyky na světě)
+
+%\usepackage{indentfirst} % odsazuje první odstavec v kapitole
+
+\usepackage{color} % balíček pro obarvování textů
+% \color{blue}
+\usepackage{xcolor}  % zapne možnost používání barev, mj. pro \definecolor
+\definecolor{mygreen}{RGB}{0,150,0} % nastavení barev odkazů 
+\definecolor{myblue}{RGB}{0,0,200} 
+\definecolor{commentgreen}{RGB}{0,100,0} % nastavení barev pro příklady z C++
+\definecolor{deepblue}{rgb}{0,0,0.7}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\usepackage{hyperref} % balíček pro hypertextové odkazy
+% \url{www.odkaz.cz}
+% \href{http://www.odkaz.cz}{Text který bude jako odkaz}
+%\hyperlink{label}{proklikávací_text} - odkaz na text 
+% \hypertarget{label}{cíl_odkazu} - cíl odkazu  
+
+
+\hypersetup{colorlinks=true, linkcolor=myblue, urlcolor=mygreen, citecolor=blue, anchorcolor = magenta,
+	linktocpage = true, frenchlinks } % nastavení barvy odkazů 
+% bookmarksopen=true, bookmarksnumbered=true, bookmarksopenlevel=1 - nastavuje rozbalování levého menu       
+
+\usepackage{graphicx} % pro vkládání obrázků a příkaz "\includegraphics"
+%% samotné vložení obrázku
+%\begin{figure}
+%	\includegraphics[width=\textwidth]{../img/when_use_latex.png}
+%	\caption{Kdy se vyplatí použít \LaTeX} % popis, který se zobrazí pod obrázkem
+%	\label{moje_navesti} %identifikuje objekt, který lze pak referencovat
+%\end{figure}
+%% ---------------------------
+
+% Délky a mezery pro celý dokument
+\setlength{\parskip}{0.5ex plus 0.5ex minus 0.2ex} %Nastavuje velikost vertikální mezery mezi odstavci:
+% první číslo je mezera mezi odstavci, druhé nevím a třetí je mezera před začátkem nové kapitoly a podkapitoly
+\parindent=0pt % odstavce nebudou odsazeny zarážkou (velikost odsazení prvního řádku odstavce)
+\usepackage{enumitem} % pro příkaz \setlist
+\setlist{itemsep = -1pt, topsep=3pt} % nastavuje mezery mezi a před výčtovým prosředím (enumerate, itemize ...)
+
+%\newcommand{\par}{\vspace{0.5\baselineskip}\textbf }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{center}
+	\Huge \textbf{Digitální technika} 
+\end{center}
+
+
+
+\section{Paměti}
+
+\textbf{Paměť} je fyzické zařízení, používané k ukládání programů nebo dat pro okamžitou nebo trvalou potřebu v počítači nebo jiném digitálním elektronickém zařízení.
+
+Paměti dělíme na: 
+
+\begin{itemize}
+	\item volatilní -- při vypnutí napájení se informace smaže (SRAM, DRAM)
+	\item nevolatilní -- informace vydrží vypnutí napájení (ROM, EPROM,  EEPROM, flash)
+\end{itemize}
+
+V současnosti používané typy pamětí jsou: 
+
+\begin{itemize}
+	\item SRAM
+	\item DRAM
+	\item EEPROM
+	\item flash
+\end{itemize}
+
+V minulosti se používaly také paměti 
+\href{https://cs.wikipedia.org/wiki/ROM}{ROM}, 
+\href{https://cs.wikipedia.org/wiki/EPROM}{EPROM}  a další.  
+
+\subsection{SRAM, DRAM}
+
+\textbf{RAM }(Random-Access-Memory) je volatilní polovodičová paměť s přímým 
+přístupem\footnote{\textbf{Přímý přístup} umožňuje přístup přímo k dané hodnotě v paměti na základě její adresy, při \textbf{sekvenční přístupu} prochází celou paměť, dokud nenajde danou hodnotu.  }
+umožňující čtení i zápis. 
+
+Paměť RAM si lze představit jako řadu očíslovaných  buněk (číslo je adresa buňky), z nichž každá obsahuje nějakou hodnotu (při velikosti buňky 1 \href{https://cs.wikipedia.org/wiki/Bajt}{bajt} hodnotu 0-255).
+
+Velikost paměti (tj. počet paměťových míst nebo buněk) se nejčastěji udává v~bajtech. Paměti současných počítačů, tabletů a chytrých telefonů mají velikost řádu gigabajtů.
+
+Polovodičové paměti RAM jsou rychlejší, ale jsou volatilní a jsou dražší než diskové paměti při přepočtu ceny za jeden bit. Používají se především jako operační paměti počítačů.
+
+Údaje, které je potřeba uchovat i po vypnutí počítače, musí být uloženy do nevolatilní paměti -- obvykle na pevný disk. Jeho nižší rychlost je kompenzována vyšší kapacitou a nezávislostí na napájení.
+
+\vspace{0.5\baselineskip} % polovina výšky řádku
+\textbf{SRAM}
+%\par{SRAM}
+
+Polovodičové paměti RAM rozdělujeme podle technologie uchovávání informace na statické (SRAM),  a dynamické (DRAM).
+
+U statické RAM (\textbf{SRAM} -- static RAM) je paměťová buňka realizována jako bistabilní klopný obvod. 
+
+Při použití technologie CMOS má SRAM téměř ideální vlastnosti -- minimální příkon, velkou šumovou odolnost a krátkou přístupovou dobu. 
+
+Paměťová buňka se však v provedení CMOS obvykle skládá ze šesti tranzistorů (klopný obvod ze dvou invertorů po dvou tranzistorech a dva další tranzistory pro přístup), což způsobuje mnohem vyšší cenu na bit než u dynamické RAM. 
+
+Proto se statické RAM používají pouze v nasazeních, kdy je požadována maximální rychlost a vyšší cena není kritická; příkladem je \href{https://cs.wikipedia.org/wiki/Cache}{cache} mezi procesorem a dynamickou pamětí RAM nebo operační paměť výkonných počítačů, kde není cena rozhodující.
+Také se používají jako paměti \hyperlink{mc}{mikrokontrolérů}. 
+
+%\widowpenalty 10000 % posl. radek odstavce nepujde na novou stranku 
+%\clubpenalty 10000 % prvni radek odstavce nebude sam na konci stranky
+\vspace{0.5\baselineskip} % polovina výšky řádku
+\textbf{DRAM} \\  %\subsection*{DRAM}
+Paměť \textbf{DRAM} neboli dynamická RAM má buňky realizovány pomocí parazitních kapacit tranzistorů. 
+
+Paměť DRAM je levnější a výrobně mnohem jednodušší, než SRAM, protože stačí jeden tranzistor. 
+
+Nevýhodou je, že se obsah každé paměťové buňky musí pravidelně obnovovat (refresh). Obnova, kterou zajišťuje speciální obvod (aby nebyl zbytečně zatěžován procesor), probíhá hromadně po celých řádcích, takže pokles výkonu paměti není dramatický (při obnově není paměť dostupná). Při čtení dochází k vymazání obsahu buňky, obnova proto musí probíhat také po každém čtení (proto je čtení 1,5x delší než zápis). Uchování informace je založeno na fyzikálním principu nabíjení kondenzátoru, konkrétně na parazitní kapacitě řídícího tranzistoru. Takto vzniklé napětí odpovídá logické 0 nebo 1. Protože se takto vzniklý kondenzátor průběžně vybíjí, je nutno obnovování informace v paměťové buňce často opakovat (několik set krát za sekundu). Obnova probíhá tak, že jsou paralelně sejmuty obsahy paměťových buněk na řádku, zesíleny a opět zapsány na původní místo.
+
+V osobních počítačích se jako vnitřní paměť (= operační paměť) používají téměř výhradně paměti DRAM. 
+
+%parazitních kapacit (jeden tranzistor)
+
+\subsection{EEPROM}
+
+\textbf{EEPROM} (též E2PROM) je zkratka pro Electrically Erasable Programmable Read-Only Memory. Jedná se o elektricky mazatelnou nevolatilní paměť. Paměť má typickou životnost 200 tisíc zápisů, což je řádově více než paměť typu flash. Další výhodou pamětí EEPROM je vyšší životnost dat v nich uložených, typická hodnota je 20 let, což je opět řádově více než u pamětí typu flash\footnote{Obě hodnoty platí pro mikrokontrolér ATMega16.}. 
+
+Hlavní nevýhodou je vyšší složitost paměťové buňky a s tím související nižší hustota a vyšší cena. Využití této paměti je jako úložiště (např. nastavení hlasitosti u TV) a obecně dat, která se mění častěji než je životnost paměti flash. 
+ 
+\subsection{Flash paměti}
+
+\textbf{Flash} paměť je nevolatilní  elektricky programovatelná paměť s přímým přís\-tu\-pem. Paměť je vnitřně organizována po blocích a na rozdíl od pamětí typu EEPROM lze plnit informacemi (programovat) každý blok samostatně (obsah ostatních bloků je zachován).  
+
+Používá se jako základ kapacitních paměťových médií -- karet, např. formátu SD, miniSD a microSD, dále disků \href{https://cs.wikipedia.org/wiki/Solid-state_drive}{SSD},
+ USB flash disků a jako paměť pro mikrokontroléry. Také jako paměť typu ROM např. pro uložení firmware.  
+
+ Výhodou paměti flash i EEPROM je (na rozdíl od starších typů ROM a~EP\-ROM), že ji lze přepsat (např. pře\-pro\-gra\-mo\-vá\-ní novější verzí firmware) bez vyjmutí ze zařízení.    
+ 
+ %*****************************************************************************   
+\section{Sběrnice}
+
+\textbf{Rozhraní} (interface) je zařízení, program nebo formát, zajišťující správnou komunikaci a přenos dat mezi odlišnými zařízeními nebo programy.\footnote{Podle toho, zda je rozhraní součástí počítačového hardwaru, nebo softwaru, mluvíme o \textbf{hardwarovém} nebo \textbf{softwarovém} rozhraní.}
+
+Sběrnice a protokoly dávají jednotlivým zařízením možnost vzájemné komunikace.
+
+\textbf{Sběrnice} je hardwarová složku komunikace, ta definuje například počet vodičů, napěťové úrovně na těchto vodičích, atd.
+
+%Sběrnice má za účel zajistit přenos dat a řídicích povelů mezi dvěma a více elektronickými zařízeními.
+
+\textbf{Protokol} je formát dat posílaných po sběrnicích.
+
+\textbf{Port} je fyzické rozhraní, ke kterému se připojuje vnější zařízení pomocí kabelu.
+
+\textbf{Master} -- zařízení (obvykle počítač nebo mikrokontrolér), které řídí provoz na sběrnici.
+
+\textbf{Slave} -- zařízení, které na sběrnici komunikuje podle pokynů mastera. 
+
+Aby komunikace fungovala, musí být master i slave připojeni ke stejné sběrnici a mít nastavený stejný protokol. 
+
+Hlavní parametry sběrnic:
+\begin{itemize}
+	\item \textbf{šířka přenosu} -- počet bitů, které lze zároveň po sběrnici přenést  [b]
+	\item \textbf{frekvence} -- maximální frekvence, se kterou může sběrnice pracovat [Hz]
+	\item \textbf{rychlost} (propustnost) -- počet bajtů přenesených za jednotku času [B/s]
+\end{itemize}
+
+\subsection{Druhy sběrnic}
+
+Sběrnice dělíme:  
+\begin{itemize}
+
+\item podle uspořádání na:
+	\begin{itemize}
+		\item \textbf{sériové} -- přenos dat postupně po jednotlivých bitech 
+		\item \textbf{paralelní} -- několik bitů je posíláno najednou, každý po svém vodiči  
+	\end{itemize}
+
+\item podle směru přenosu na: 
+	\begin{itemize}
+		\item jednosměrné
+		\item obousměrné
+	\end{itemize}
+
+\item podle provozu na:
+	\begin{itemize}
+		\item \textbf{synchronní} -- vysílač je s přijímačem synchronizován tak, že přijímač přesně ví, v kterém okamžiku se přenáší informace (obvykle se zajišťuje pomocí hodinového signálu, tzv. Clock) 
+		\item \textbf{asynchronní} -- vysílač vysílá bez ohledu na stav přijímače a dekódování signálu se řídí jeho obsahem
+	\end{itemize}
+
+\item podle umístění na:
+	\begin{itemize}
+		\item \textbf{interní} -- spojuje obvody uvnitř čipu nebo zařízení 
+		\item \textbf{externí} -- propojuje zařízení s okolím 
+	\end{itemize}
+
+\end{itemize}
+
+\vspace{0.5\baselineskip} % polovina výšky řádku 
+ {\footnotesize Sběrnic a protokolů na nich je velké množství, různí autoři tyto pojmy (a také pojmy rozhraní a port) používají různě, navíc se mohou jejich názvy částečně nebo úplně překrývat. }
+
+ \vspace{0.5\baselineskip} % polovina výšky řádku
+Běžně používané sběrnice jsou například:
+
+\begin{itemize}
+	\item USB -- připojení zařízení k PC, mobilní telefony 
+	\item I$^{2}$C, UART (RS-232, RS-485), SPI -- vestavěné systémy, mobilní telefony, hobby elektronika 
+	\item  CAN, Ethernet -- průmyslové sběrnice % Modbus je protokol 
+\end{itemize}
+
+Podrobněji o některých sběrnicích v kapitole \ref{prehled_sbernic}.
+
+
+%**************************************************************************************
+\section{Mikrokontrolér} \label{mc_section}
+
+\textbf{Počítač} je (v informatice) zařízení, které zpracovává data pomocí předem vytvořeného \hypertarget{mc}{programu}. 
+
+\textbf{Mikrokontrolér} nebo také jednočipový počítač
+ je integrovaný obvod obsahující kompletní počítač. 
+
+\textbf{Vlastnosti:} Mikrokontroléry se vyznačují velkou spolehlivostí, kompaktností a nízkou cenou, proto jsou určeny především pro jednoúčelové
+aplikace jako je řízení, regulace apod. 
+
+\textbf{ Použití:} často jsou mikrokontroléry součástí vestavěných (embedded) systémů (viz kapitola \ref{embedded}). 
+Za jed\-no\-či\-po\-vý počítač je možné označit i hlavní integrovaný obvod v současných mobilních telefonech. 
+
+\subsection{Základní struktura mikrokontrolérů}
+
+Každý mikrokontrolér obsahuje: 
+\begin{enumerate}
+	\item \textbf{procesor} -- část systému, určená na postupné zpracování určitých vstupů na výstupy\footnote{Slovo \uv{procesor} v latině znamená \uv{zpracovatel} nebo \uv{ten, kdo způsobuje, že něco postupně postupuje vpřed}.}
+	\item \textbf{operační paměť} -- paměť typu RAM  
+	\item \textbf{paměť programu} -- EEPROM nebo flash obsahující program a data
+	\item \textbf{oscilátor} -- krystalový 
+	\item \textbf{vstupně/výstupní rozhraní} -- viz kapitola \ref{io}
+\end{enumerate}
+
+Obvykle mikrokontrolér obsahuje také:
+\begin{enumerate}
+	\item řadič přerušení\footnote{\textbf{Přerušení} (anglicky interrupt) je v informatice metoda pro asynchronní obsluhu událostí, kdy procesor přeruší vykonávání sledu instrukcí programu, vykoná obsluhu přerušení, a pak pokračuje v předchozí činnosti.} 
+	(viz kapitola \ref{radic})
+	\item časovače 
+	\item čítače
+	\item watchdog timer (viz kapitola \ref{wdt})
+\end{enumerate}
+
+Mikrokontrolér může kromě těchto součástí obsahovat další periferie, například:
+\begin{enumerate}
+	\item řadič displeje
+	\item řadič klávesnice
+	\item a další.
+	%	\item programovatelné hradlové pole
+\end{enumerate}
+
+\subsection{Řadič} \label{radic}
+
+\textbf{Řadič} (také \textbf{řídící jednotka periferního zařízení}) je hardware zabezpečující styk s počítačovou periferií nebo počítačovým modulem. 
+
+Řadič funguje jako tlumočník. Údaje z periferie překládá do formátu, kterému rozumí sběrnice a naopak. Je to řídící jednotka, která řídí celou činnost periferie. 
+
+\subsection{Watchdog timer} \label{wdt}
+
+\textbf{Watchdog (timer)}, zkráceně WDT (z angličtiny -- \uv{hlídací pes}) je počíta\-čo\-vá periferie, která resetuje systém při jeho zacyklení. 
+
+K zacyklení systému může dojít v důsledku chyby v hardware nebo software systému. Program (většinou v hlavní smyčce) periodicky signalizuje watchdogu svůj chod. Pokud systém určitý čas nesignalizuje chod (typicky milisekundy až sekundy), pak watchdog způsobí reset systému. 
+
+Účelem a současně důvodem existence watchdogu je přivést systém prost\-řed\-nic\-tvím resetu ze zaseknutého stavu zpět k normální funkci. Bez watchdogu by musel být čip resetován manuálně, což by u čipů v automatických strojích na odlehlých nebo špatně přístupných místech (např. meteorologické stanice, přístroje u rozvodů elektrického vedení) mohl být problém.
+
+
+
+\subsection{Vstupně/výstupní rozhraní} \label{io}
+
+V závislosti na své složitosti může mikrokontrolér pro komunikaci s okolím používat různá vstupní nebo výstupní rozhraní, například: 
+
+\begin{enumerate}
+	\item paralelní porty (až desítky pinů)
+	\item sériové porty (asynchronní, synchronní)
+	\item porty komunikačních sběrnic (CAN, Ethernet)
+	\item A/D převodníky -- zajišťují převod analogového signálu na digitální
+	\item D/A převodníky -- zajišťují převod digitálního signálu na analogový
+	\item PWM výstupy (viz kapitola \ref{pwm})
+	\item vstupy pro zachycování času a počítání událostí 
+	\item aplikačně zaměřené porty (např. vstupy pro čtení čidel polohy rotoru, výstup řadiče LCD displejů apod.)		
+\end{enumerate}  
+
+\subsection{PWM} \label{pwm}
+
+\textbf{Pulsně-šířková modulace} neboli \textbf{PWM}  (pulse width modulation) umož\-ňu\-je plynulou změnu výkonu na zátěži, například 
+ otáček DC motoru nebo svitu LED diod při malých ztrátách na výkonovém spínacím prvku. 
+ Principem je změna šířky spínacího impulsu při konstantní periodě (frekvenci) budícího signálu. 
+ Výstup mikropočítače, který nabývá jen úrovně 0~V nebo 5~V (novější 3,3~V), tak může plynule řídit střední hodnotu výstupního napětí.\footnote{Poměr šířky pulsu k šířce mezery se nazývá \textbf{střída}. Její definice se různí podle zdrojů, viz např.
+\href{https://cs.wikipedia.org/wiki/St\%C5\%99\%C3\%ADda\_sign\%C3\%A1lu}{wiki} 
+	a \href{http://www.dhservis.cz/psm.htm}{dhservis}.}
+ 
+
+\section{Příklady mikrokontrolérů a jejich použití}
+
+\subsection{Příklady mikrokontrolérů}
+
+Mikrokontrolérů existuje velké množství podle jejich účelu. 
+Často jeden vý\-rob\-ce vyrábí řadu navzájem podobných a z velké části kompatibilních mikrokontrolérů nebo  
+mikroprocesorů\footnote{\textbf{Mikroprocesor} je procesor pouzřený v jediném integrovaném obvodu.} -- mluvíme potom o tzv. \textbf{rodinách mikrokontrolérů}.    
+My si uvedeme pouze některé, jejich parametry jsou snadno dohledatelné na internetu. 
+
+\begin{itemize}
+	\item rodina mikrokontrolérů AVR (ATmega, ATxmega)
+	\item  mikrokontroléry ESP8266, ESP32 
+	\item rodina  mikrokontrolérů  ARM
+\end{itemize}
+
+
+%AVR? 8051?
+
+
+
+\subsection{Vývojové desky}
+
+Vývojová deska obsahuje kromě samotného mikrokontroléru také vývody pro snadné připojení pinů a pomocné obvody pro napájení, programování a další. Jejich popis a vlastnosti jsou opět snadno dohledatelné na internetu. 
+
+\begin{itemize}
+	\item Arduino Uno/Mega -- osazeno mikrokonroléry z rodiny ATmega
+	\item DevKitC  -- osazeno mikrokonrolérem ESP32
+	\item Rabsperry Pi  -- osazeno mikrokonroléry z rodiny ARM
+	\item Schoolboard, ALKS  -- rozšíření (shield)  pro DevKitC vyvinuté na Robotárně Brno 
+\end{itemize}
+
+
+
+\subsection{Vestavěné systémy} \label{embedded}
+\textbf{Vestavěný systém} (zabudovaný systém, \textbf{embedded system}) je jedno\-ú\-če\-lo\-vý počítač,
+ve kterém je řídicí systém zcela zabudován do zařízení, které ovládá. 
+
+Na rozdíl od univerzálních počítačů, jako jsou osobní počítače (PC), jsou zabudované systémy většinou specializované, určené pro předem definované činnosti. 
+Vzhledem k tomu, že operační systém tohoto počítače je určen pro konkrétní účel, 
+mohou ho tvůrci systém při návrhu zjednodušit a optimalizovat hlavní aplikaci, a tak snížit cenu výrobku. 
+Vestavěné systémy jsou často vyráběny sériově ve velkém množství, takže úspora bývá znásobena velkým počtem vyrobených kusů.
+Další výraznou výhodou je rychlost a jednoduchost použití.
+
+Příklady: bankomat, kalkukačka, mobilní telefon, mikrovlnka a další, viz \cite{embedded}.
+
+
+ \section{Některé běžně používané sběrnice (rozšiřující) }  \label{prehled_sbernic}
+ 
+  \subsection{USB}
+  
+  USB (Universal Serial Bus) -- univerzální sériová sběrnice je externí sběrnice PC.
+    Od počítače-hostitele vede kabel tvořený čtyřmi vodiči (zem, napájení 5~V, DATA+, DATA--), který se může větvit k dalším periferiím. Větvení probíhá buď v některé z periferií, nebo jsou ve vedení zařazeny rozbočovače, v nichž se kabel větví. USB má tyto vlastnosti:
+    \begin{itemize}
+    	\item připojené zařízení může být až 5~m od hostitelského PC
+    	\item podpora Plug and Play
+    	\item Hot Swap (připojení zařízení za chodu počítače)
+    	\item datový tok musí řídit procesor z PC
+    	\item podpora více současných operací na několika zařízeních
+    	\item možnost připojení až 127 zařízení
+    	\item levná implementace a žádné licenční poplatky	
+    	\item přímo ze sběrnice lze napájet periferie, jejichž odběr nepřekročí 100~mA na port (podle specifikace, v realitě sběrnice \uv{utáhne} odběr kolem 500~mA).
+    	
+    \end{itemize}
+ 
+   
+   \subsection{I$^{2}$C}
+   Sběrnice a protokol zároveň je I$^{2}$C,
+   také známá jako Inter-Intergrated Circuit.\footnote{ Protože je značka I$^{2}$C chráněna, používali ostatní výrobci název TWI, jedná se o~prakticky stejnou sběrnici, pouze pod jiným názvem.}
+   Tato sběrnice byla vyvinuta firmou Philips primárně pro připojení periferií, které nevyžadovaly vysoké komunikační rychlosti.
+   Sběrnice podporuje jak multi-master, tak multi-slave.
+   Běžná rychlost je 100kbit/s, ve Fast modu je 400kbit/s. Novější revize pak umožňují až 5 Mbit/s, s~touto verzí však nemusí být kompatibilní starší zařízení.
+   I$^{2}$C používá 7-bitovou adresu, což teoreticky znamená, že je na každé sběrnici možno provozovat až 127 zařízení, prakticky je toto číslo značně nižší.
+   I$^{2}$C využívá TTL.
+   Maximální délka sběrnice je 1 metr na 100k Baudech, sběrnice však nebyla designovaná na provoz po kabelu, jak je zvyklá ji používat většina amatérských nadšenců.
+   
+   \begin{table}[h]
+   	
+   	\centering
+   	\begin{tabular}{|l|l|l|l|l|} \hline
+   		Maximální počet zařízení      & 127              \\ \hline
+   		Maximální délka               & 1 metr           \\ \hline
+   		Běžná rychlost                & 100kbit/s        \\ \hline
+   		Maximální teoretická rychlost & 5Mbit/s          \\ \hline
+   		Minimální počet vodičů        & 3(SDA, SCL, GND) \\ \hline
+   	\end{tabular}
+   	\caption{Shrnutí I$^{2}$C:}
+   \end{table}
+   
+   
+   \subsection{UART}
+
+   UART ve skutečnosti není sběrnice jako taková, jedná se spíše o~něco mezi sběrnicí a protokolem.
+   UART definuje pouze posílaná data (0 a 1), ne však způsob jejich posílání či napěťové úrovně sběrnice.
+   O~to se starají právě jednotlivé implementace/sběrnice.\footnote{I přesto se dá UART používat sám o~sobě na TTL (Transistor-Transistor-Logic), v~tom případě je definice napěťových úrovní ponechána jednotlivým zařízením, což může způsobit vzájemnou nekompatibilitu.}
+   Nejběžněji použiváné sběrnice pro UART jsou:
+   \subsubsection{RS-232} % (fold)
+   RS-232 je implementace UART.
+   Používá napěťové úrovně +15V až +5V pro logickou 1 a -5V až -15V pro logickou 0, toto platí pro vysílací část.
+   Přijímací část přidává dvouvoltovou histerezi kvůli rušení, což znamená +15V až +3V pro logickou 1 a -3V až -15V pro logickou 0.
+   RS-232 potřebuje společnou GND.
+   \begin{table}[h]g
+   	
+   	\centering
+   	\begin{tabular}{|l|l|l|l|l|} \hline
+   		Maximální počet zařízení      & 2              \\ \hline
+   		Běžná rychlost                & 115200~baud/9600~baud        \\ \hline
+   		Maximální teoretická rychlost & 10Mbit/s       \\ \hline
+   		Minimální počet vodičů        & 3(Tx, Rx, GND) \\ \hline
+   	\end{tabular}
+   	\caption{Shrnutí RS-232}
+   \end{table}
+   % subsection RS-232 (end)
+   \subsubsection{RS-485} % (fold)
+   RS-485 je další implementace.
+   Nepoužívá ale napěťové úrovně oproti společné GND, nýbrž využívá rozdílu napětí na linkách A~a B, ten musí být alespoň 200mV.
+   To způsobuje několik věcí:
+   \begin{itemize}
+   	\item Pokud vedou obě linky podél sebe, nejlépe jsou-li kroucené, je prakticky nemožné komunikaci zarušit, což je v~prostředí motorů na robotu značná výhoda.\footnote{Zároveň to výrazně zvyšuje maximální možnou délku linky, při nižších rychlostech ař na 1200~m. Doporučení: rychlost[baud]*vzdálenost[m] <+/-10$^{8}$}   
+   	\item Není potřeba společná GND.
+   	\item Pro plný duplexní mód (jedna linka na vysílání a jedna na přijímaní) je potřeba dvojnásobný počet vodičů, tedy 4.
+   \end{itemize}
+   V~závislosti na použitém převodníku z~UART na RS-485 může být počet zařízení na sběrnici 32, nebo až 128.
+ 
+   \begin{table}[h]
+   	
+   	\centering
+   	\begin{tabular}{|l|l|l|l|l|} \hline
+   		Maximální počet zařízení      & 32/128              \\ \hline
+   		Běžná rychlost                & 115200~baud/9600~baud        \\ \hline
+   		Minimální počet vodičů        & 2(A, B) \\ \hline
+   		Maximální vzdálenost		  & 1200~m \\ \hline
+   	\end{tabular}
+   	\caption{Shrnutí RS-485}
+   \end{table}
+   % subsection RS-485 (end)
+   
+   \subsection{SPI}
+   SPI, neboli Serial Peripherial Interface, je dvoukanálová synchronní multislave sběrnice.
+   Pro komunikaci využívá 4 vodiče, MOSI (Master Output Slave Input), neboli výstup z~master a vstup do slave, MISO (Master Input Slave Output), neboli výstup ze slave a vstup do master, SCK neboli hodinový signál, a SS (Slave Select) tímto pinem nastavujeme, který slave je momentálně aktivní, tudíž na straně masteru může být počet použitých pinů větší (3 + počet slave zařírzení).
+   Další možná konfigurace je tzv. Daisy-chain, kdy je  MOSI masteru připojeno na MOSI prvního slave zařízení a MISO prvního slave zařízení je připojeno na MOSI dalšího slave zařízení, až MISO posledního slave zařízení je připojeno na MISO masteru.
+   Tato konfigurace poskytuje snížení počtu vodičů, zároveň ale snižuje i komunikační rychlost, proto informace od prvního slave zařízení musí obejít celý kruh, než se dostanou zpět k~master zařízení.
+   Nespornou výhodou SPI je její rychlost.
+   Maximální rychlost není definovaná, aplikace běžně jdou až přes 10Mb/s.
+   Nevýhodou může být velký počet vodičů.
+  
+   \subsection{1-Wire}
+   1-Wire je sběrnice, která jak již její název napovídá, potřebuje pouze jednu linku.
+   K~tomu potřebuje ještě společnou GND, ale i tak to jsou pouze 2 linky, které obsáhnou napájení i komunikaci.\footnote{Sběrnici je možno provozovat i na třílinkovém módu.}
+   Této typologie se využívá třeba u~kontaktních přístupových čipů.
+   Sběrnice je také poměrně známá pro svůj CRC součet, který umožňuje kontrolu odeslaných dat.
+   1-Wire je kompatibilní s~TTL.
+   Každé zařízení na sběrnici má unikátní neměnnou adresu.
+
+    
+\tableofcontents
+
+\renewcommand{\refname}{Další zdroje}
+\begin{thebibliography}{1}
+	\bibitem{embedded}
+	\textit{Vestavěný systém} [online] https://cs.wikipedia.org [cit. 2020-02-08] Dostupné z: \\ 
+	\url{https://cs.wikipedia.org/wiki/Vestav%C4%9Bn%C3%BD_syst%C3%A9m }
+	\bibitem{sbernice1}	
+	\textit{Grafika, porty, sběrnice} [online] moodle.sspbrno.cz [cit. 2020-02-08] Dostupné z: \\ 
+\url{https://moodle.sspbrno.cz/pluginfile.php/8827/mod_resource/content/0/Grafika_porty_sbernice.pdf}
+	
+
+\end{thebibliography}
+
+
+    
+\end{document}
+*********************************************************************************************
+ Presnejšia definícia znie, že je to subsystém systému spracovania dát, ktorý prijíma informácie zakódované predtým vstupným subsystémom, a ktorý údaje potom spracováva a odosiela na výstupný subsystém, kde sa opäť dekódujú na informáciu. 
+ ---------------------
+\textbf{mikrokontrolér}
+\url{https://cs.wikipedia.org/wiki/Jedno%C4%8Dipov%C3%BD_po%C4%8D%C3%ADta%C4%8D } mikrokontrolér
+ 
+ 
+Mikrokontrolér (iné názvy: jednočipový mikropočítač, jednočip, monolit; z angl. microcontroller; skr. mcu z microcontroller unit) je špeciálny druh mikroprocesora pre zákaznícky špecifické koncové aplikácie. 
+
+ ---------------------
+Mikroprocesor je druh procesora, ktorý je ako celok integrovaný do jediného integrovaného obvodu.
+
+\textbf{ Mikroprocesor}  je v informatice označení pro centrální procesorovou jednotku (CPU), 
+která je jako celek integrována do pouzdra jediného integrovaného obvodu[1] nebo nejvýše několika mála integrovaných obvodů.
+[2] Mikroprocesor je víceúčelové programovatelné zařízení, které na vstupu akceptuje digitální data, 
+zpracuje je pomocí instrukcí uložených v paměti a jako výstup zobrazí výsledek. 
+Mikroprocesor představuje příklad sekvenčního logického obvodu, který pro uložení dat používá dvojkovou soustavu.
+https://cs.wikipedia.org/wiki/Mikroprocesor
+ ---------------------
+wikipedia: 
+TTL, CMOS (obsahuje technologii výroby), Seznam logických integrovaných obvodů řady 7400,  
+--------------------
+Jednotlivé vodiče sběrnic dělíme podle funkce na: 
+
+\begin{itemize}
+	\item datové
+	\item adresové
+	\item řídící 
+\end{itemize}
+
+ ----------------------------
+
+dořešit: 
+
+paralelní porty (až desítky pinů)
+sériové porty (asynchronní, synchronní, viz sériový kanál)
+porty komunikačních sběrnic (CAN-BUS, Ethernet)
+A/D převodníky
+D/A převodníky
+
+operační paměť – paměť typu RAM, velikost od jednotek byte po desítky KiB,
+paměť programu – paměť typu ROM, EPROM, EEPROM nebo flash obsahující program a data, velikost řádově desítky až stovky KiB,
+**********************************************************
+
+What is Visuino?
+Visuino is the latest innovative software from Mitov Software. A visual programming environment allowing you to program your Arduino boards. It currently supports the official Arduino boards, Raspberry Pi, Teensy, Femto IO, ESP8266, ESP32, Controllino, Goldilocks Analogue, FreeSoC2, chipKIT, micro:bit, Maple Mini, and number of Arduino clones, however it is not restricted to their support alone and requests to support new hardware are welcome.
+https://www.visuino.com/
+
+https://www.controllino.biz/ - arduino v profi provedení, plně kompatibilní 
+
+

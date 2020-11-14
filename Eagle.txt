@@ -1,0 +1,88 @@
+Eagle 
+
+ knihovna
+
+new-> schematic 
+
+potom tla��tko add part 
+  ESC vrac� do v�b�ru sou��stek 
+  
+
+cesta knihoven:
+st�hnout do adres��e:  
+c:\dokumenty\eagle\libraries
+potom Open manager libraries -> 
+z�lo�ka In use -> browse 
+vybrat a otev��t -> pak se s tou knihovnou d� teprve pracovat 
+
+tla��tka name a value -> jsou v seznamu sou��stek, Eagle jejich hodnoty ne�e�� 
+
+
+tla��tko BRD-SCH p�epne do vytv��en� desky
+
+vlevo tla��tko info -> umo��uje �pravy rozm�r� 
+
+tla��tko group - ozna�uje skupinu, se kterou lze manipulovat sou�asn� 
+
+vrstva - TOP - horn� vrstva vodi�� 
+BOTTOM - spodn� vrstva vodi�� 
+PAD - plo�ky, na kter� se p�j� 
+
+rozm�ry powerbanky Robot�rensk� 24x22 mm (24 je USB pod�ln�, 22 kolmo)
+rozm�ry USB portu: hloubka 12 mm, ���ka 12mm, v��ka 2.0 mm, 
+
+v�robce desek: JLCPCB
+
+klasick� tlou��ka desky je 1,6 mm 
+
+DRC - nastaven� kde �eho (pads, okraje nevodiv�, ... ) nastaven� pro Gatemu je na Githubu robot�rny u knihoven     
+
+nov� knihovna  
+
+USB na desce 5V vlevo     
+
+n�stroj Change - m�n� snadno spoustu v�c� (cesty, text, .. )
+progr�mek, kter� po��t� ���ku cest na DPS pro dan� proudy a teploty
+- ide�ln� 
+
+pokud to jde, m�t zem rozlitou dole 
+
+  nap�ed 
+  pokud m�m dvouvrstvou desku, tak podle mo�nost� rozleju zem dole
+  za��n�m nap�jen�m, kter� rozv�d�m jako prvn�, aby ta dr�ha nem�la odpor, ne� dojde k sou��stk�m 
+  
+  dr�ha, na kter� je rezistor 
+  
+  kolikr�t je lep�� v�c rozm�stit znova ve sch�matu, t�eba i oto�it �ip, a potom se teprve vracet do routov�n� 
+  
+  nechceme m�t men�� �hly ne� 90st , proto�e se to pr� "blb� vyr�b�"
+  
+  pro vysokofrekven�n� proudy je to pr� taky probl�m 
+  
+  mezi n�kter� sou��stky je pot�eba rozl�vat m�� - zem, nap�. p��vody k opera�n�m 
+  zesilova��m, aby byly jednotliv� dr�hy navz�jem odst�n�n�, na to mus� mezi sou��stkami 
+  b�t m�sto 
+  
+  v�robn� podklady - gerber files 
+  
+  -----------------------------------
+  EPZ - Eagle pro za��te�n�ky, Anton�n Jur�nek, BEN 2007
+  EP - Eagle prakticky, Zden�k Pl�va, BEN 2010
+  seznam sou��stek: EPZ str.56 (lze exportovat jako txt �azen� bu� podle sou��stek nebo podle jejich hodnot)
+  -> v Control Panel: User Language programs\examples\bom.ulp -> prav�m tla��tkem -> run in schematic
+  seznam knihoven, ze kter�ch jsou sou��stky:  
+  v editoru sch�mat -> tools\statistics\save report (dole v okn�) potom hledat soubor s p��ponou *.rep
+  
+  Super Easy to use 3D Viewer for EAGLE PCB Board files: 
+  https://www.youtube.com/watch?reload=9&v=k4xi3nxwVZk
+  
+  aby byla zachovan� propojenost n�vrhu (
+  
+  -----------
+  jako literatura k Eaglu sta�� EPZ a EP, kdo chce dal�� info, m��e zkusit: N�vrh plo�n�ch spoj� pro povrchovou mont�, Josef �andera, BEN 2006 
+  
+  
+  
+  
+  
+                                          
